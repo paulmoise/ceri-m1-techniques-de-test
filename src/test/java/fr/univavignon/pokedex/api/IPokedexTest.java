@@ -75,14 +75,18 @@ public class IPokedexTest {
         IPokedex pokedex = mock(IPokedex.class);
         Pokemon expectedPokemon = new Pokemon(25, "Pikachu", 55, 40, 35, 431, 35, 100, 25, 0.75);
         pokedex.addPokemon(expectedPokemon);
+        when(pokedex.getPokemon(0)).thenReturn(expectedPokemon);
+
         Pokemon retrievedPokemon = pokedex.getPokemon(0);
         assertEquals(expectedPokemon, retrievedPokemon);
     }
 
     @Test
-    void testGetPokemonFailure() {
+    void testGetPokemonFailure() throws PokedexException {
         IPokedex pokedex = mock(IPokedex.class);
-        Executable executable = () -> pokedex.getPokemon(999); // Invalid index.
+        Executable executable = () -> pokedex.getPokemon(-1); // Invalid index.
+        doThrow(new PokedexException("Invalid Index ")).when(pokedex).getPokemon(-1);
+
         assertThrows(PokedexException.class, executable);
     }
 
