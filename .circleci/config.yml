@@ -10,7 +10,9 @@ jobs:
       - run:
           name: Run Maven Test
           command: mvn test
-
+      - run:
+          name: Generate coverage report
+          command: mvn jacoco:report
 
 orbs:
   codecov: codecov/codecov@4.0.1
