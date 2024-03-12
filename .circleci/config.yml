@@ -9,8 +9,9 @@ jobs:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
-      - run: mvn jacoco:report
       - run: mvn test
+      - store_artifacts:
+          path: target
 
   upload-coverage:
     docker:
