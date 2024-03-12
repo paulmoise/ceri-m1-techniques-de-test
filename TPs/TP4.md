@@ -28,7 +28,7 @@ Les détails d’implémentation pourront être discutés avec l'intervenant lor
 <p align="center" style="color: #ffcb05; font-size: 2rem;">
 Félicitation tu as gagné le badge suivant :
 </p>
-<p align="center">
+<p align="center"> 
     <img
         alt="Dessin d'un linoone"
         src="images/linoone.png"
