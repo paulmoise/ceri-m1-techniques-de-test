@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: mvn test
       - store_artifacts:
-          path: target
+          path: target/my-report
 
   upload-coverage:
     docker:
