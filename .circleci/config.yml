@@ -9,9 +9,9 @@ orbs:
 
 # Define all the job we need to run the project
 jobs:
-  build-and-test:
+  build:
     docker:
-      - image: cimg/openjdk:17.0
+      - image: circleci/openjdk:17-ea-buster-node-browsers-legacy
     steps:
       - checkout
       - run:
@@ -32,7 +32,6 @@ workflows:
   upload-to-codecov:
     jobs:
       - build
-
   build-and-test-on-master:
     jobs:
       - build:
