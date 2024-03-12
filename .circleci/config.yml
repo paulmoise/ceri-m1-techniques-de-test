@@ -11,8 +11,11 @@ jobs:
           name: Run Maven Test
           command: mvn test
       - run:
-          name: Generate coverage report
+          name: Generate Coverage Report
           command: mvn jacoco:report
+      - run:
+          name: Upload Coverage Report
+          command: bash <(curl -s https://codecov.io/bash)
 # code coverage
 orbs:
   codecov: codecov/codecov@4.0.1
@@ -20,6 +23,11 @@ orbs:
 # Job
 workflows:
   version: 2
+  # code coverage
+  upload-to-codecov:
+    jobs:
+      - build
+
   build-and-test-on-master:
     jobs:
       - build-and-test:
@@ -27,8 +35,3 @@ workflows:
             branches:
               only: master
 
-  # code coverage
-  upload-to-codecov:
-    jobs:
-      - checkout
-      - codecov/upload
