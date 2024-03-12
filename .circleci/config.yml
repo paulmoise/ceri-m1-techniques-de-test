@@ -9,8 +9,8 @@ jobs:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
-      - run: mvn test
       - run: mvn jacoco:report
+      - run: mvn test
 
   upload-coverage:
     docker:
