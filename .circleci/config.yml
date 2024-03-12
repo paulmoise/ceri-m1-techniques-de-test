@@ -1,6 +1,8 @@
 version: 2.1
 
-# Define all the job we need to run the project
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 jobs:
   build-and-test:
     docker:
@@ -13,11 +15,14 @@ jobs:
       - run:
           name: Generate coverage report
           command: mvn jacoco:report
-# code coverage
-orbs:
-  codecov: codecov/codecov@4.0.1
 
-# Job
+  upload-coverage:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - codecov/upload
+
 workflows:
   version: 2
   build-and-test-on-master:
@@ -26,8 +31,9 @@ workflows:
           filters:
             branches:
               only: master
-# code coverage
   upload-to-codecov:
     jobs:
-      - checkout
-      - codecov/upload
+      - upload-coverage:
+          filters:
+            branches:
+              only: master
