@@ -31,4 +31,6 @@ workflows:
           filters:
             branches:
               only: master
+      - upload-coverage:
+
 
