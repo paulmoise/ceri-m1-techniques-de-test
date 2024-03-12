@@ -9,13 +9,8 @@ jobs:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
-      - run:
-          name: Generate coverage report
-          command: mvn jacoco:report
-      - run:
-          name: Run Maven Test
-          command: mvn test
-
+      - run: mvn test
+      - run: mvn jacoco:report
 
   upload-coverage:
     docker:
