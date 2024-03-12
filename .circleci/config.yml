@@ -11,6 +11,10 @@ jobs:
           name: Run Maven Test
           command: mvn test
 
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 # Job
 workflows:
   version: 2
@@ -20,3 +24,8 @@ workflows:
           filters:
             branches:
               only: master
+
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload

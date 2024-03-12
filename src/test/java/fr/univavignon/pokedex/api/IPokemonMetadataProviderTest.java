@@ -19,22 +19,66 @@ public class IPokemonMetadataProviderTest {
     }
 
     @Test
-    public void testGetPokemonMetadata() throws PokedexException {
-        PokemonMetadata expectedMetadata = new PokemonMetadata(25, "Pikachu", 55, 40, 35);
-        when(metadataProvider.getPokemonMetadata(25)).thenReturn(expectedMetadata);
+    public void testGetPokemonMetadataObjRef() throws PokedexException {
+        int index = 0;
+        String name = "Bulbizarre";
+        int attack = 126;
+        int defense = 126;
+        int stamina = 90;
 
-        PokemonMetadata actualMetadata = metadataProvider.getPokemonMetadata(25);
+        PokemonMetadata expectedMetadata = new PokemonMetadata(index, name, attack, defense, stamina);
+        when(metadataProvider.getPokemonMetadata(index)).thenReturn(expectedMetadata);
+
+
+        PokemonMetadata actualMetadata = metadataProvider.getPokemonMetadata(index);
 
         assertEquals(expectedMetadata, actualMetadata);
+    }
+
+
+    @Test
+    public void testGetPokemonMetadata() throws PokedexException {
+        int index = 0;
+        String name = "Bulbizarre";
+        int attack = 126;
+        int defense = 126;
+        int stamina = 90;
+
+        PokemonMetadata metaData = new PokemonMetadata(index, name, attack, defense, stamina);
+        when(metadataProvider.getPokemonMetadata(index)).thenReturn(metaData);
+
+
+        PokemonMetadata actualMetadata = metadataProvider.getPokemonMetadata(index);
+        assertNotNull(actualMetadata, "Metadata should not be null");
+
+        assertEquals(0, actualMetadata.getIndex(), "Index should be 0");
+        assertEquals("Bulbizarre", actualMetadata.getName(), "Name should be Bulbasaur");
+        assertEquals(126, actualMetadata.getAttack(), "Attack should be 118");
+        assertEquals(126, actualMetadata.getDefense(), "Defense should be 111");
+        assertEquals(90, actualMetadata.getStamina(), "Stamina should be 128");
     }
 
     @Test
     public void testGetPokemonMetadataInvalidIndex() throws PokedexException {
         int invalidIndex = -1;
+
         when(metadataProvider.getPokemonMetadata(invalidIndex)).thenThrow(new PokedexException("Invalid index: " + invalidIndex));
 
         Executable executable = () -> metadataProvider.getPokemonMetadata(invalidIndex);
 
         assertThrows(PokedexException.class, executable);
     }
+
+    @Test
+    public void testGetPokemonMetadataIndexOutBound() throws PokedexException {
+        int invalidIndex = -1;
+
+        when(metadataProvider.getPokemonMetadata(invalidIndex)).thenThrow(new PokedexException("Invalid index: " + invalidIndex));
+
+        Executable executable = () -> metadataProvider.getPokemonMetadata(invalidIndex);
+
+        assertThrows(PokedexException.class, executable);
+    }
+
+
 }
