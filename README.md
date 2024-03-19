@@ -36,4 +36,14 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 
 [^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
 
-[![codecov](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test/graph/badge.svg?token=INESR4ITJI)](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test)
+## Auteur
+
+* Nom: GANGBADJA
+
+* Prénom: Paul Moïse
+
+* Groupe: M1-IA-IL-ALT
+
+## Badges
+* Badge CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master)
+* Badge Couverture de Test: [![codecov](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test/graph/badge.svg?token=INESR4ITJI)](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test)
