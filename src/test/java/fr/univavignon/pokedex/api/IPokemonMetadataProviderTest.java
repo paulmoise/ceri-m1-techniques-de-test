@@ -1,14 +1,8 @@
 package fr.univavignon.pokedex.api;
 
-import fr.univavignon.pokedex.api.IPokemonMetadataProvider;
-import fr.univavignon.pokedex.api.IPokemonMetadataProviderImpl;
-import fr.univavignon.pokedex.api.PokedexException;
-import fr.univavignon.pokedex.api.PokemonMetadata;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IPokemonMetadataProviderTest {
 
@@ -37,4 +31,28 @@ public class IPokemonMetadataProviderTest {
         assertEquals(expectedStamina, actualMetadata.getStamina());
     }
 
+    @Test
+    public void testGetPokemonMetadataNonExistentIndex() {
+        int invalidIndex = 1000;
+        assertThrows(PokedexException.class, () -> metadataProvider.getPokemonMetadata(invalidIndex),
+                "Attempting to retrieve metadata for a non-existent Pokémon index should throw a PokedexException.");
+    }
+
+    @Test
+    public void testGetPokemonMetadataAnotherValidIndex() throws PokedexException {
+        int index = 35;
+        String expectedName = "pokemon2";
+        int expectedAttack = 384;
+        int expectedDefense = 29;
+        int expectedStamina = 500;
+
+        PokemonMetadata actualMetadata = metadataProvider.getPokemonMetadata(index);
+        assertNotNull(actualMetadata, "Metadata for a valid index should not be null");
+
+        assertEquals(index, actualMetadata.getIndex());
+        assertEquals(expectedName, actualMetadata.getName());
+        assertEquals(expectedAttack, actualMetadata.getAttack());
+        assertEquals(expectedDefense, actualMetadata.getDefense());
+        assertEquals(expectedStamina, actualMetadata.getStamina());
+    }
 }
