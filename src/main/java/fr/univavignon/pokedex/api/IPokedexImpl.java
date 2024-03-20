@@ -3,6 +3,7 @@ package fr.univavignon.pokedex.api;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class IPokedexImpl implements IPokedex{
 
@@ -23,6 +24,14 @@ public class IPokedexImpl implements IPokedex{
 
 	@Override
 	public int addPokemon(Pokemon pokemon) {
+		Optional<Pokemon> existingPokemon = pokemons.stream()
+				.filter(p -> p.getIndex() == pokemon.getIndex())
+				.findFirst();
+
+		if (existingPokemon.isPresent()) {
+			throw new RuntimeException("Duplicate: Pokemon with index " + pokemon.getIndex() + " already exists in the Pokedex.");
+		}
+
 		pokemons.add(pokemon);
 		return pokemon.getIndex();
 	}
