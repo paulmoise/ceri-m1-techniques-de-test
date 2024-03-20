@@ -37,4 +37,32 @@ public class IPokemonTrainerFactoryTest {
         assertEquals(expectedTeam, trainer.getTeam(), "Trainer's team should match the expected team.");
         assertNotNull(trainer.getPokedex(), "Trainer should have a Pokedex.");
     }
+
+    @Test
+    void testCreateTrainerWithDifferentTeam() {
+        IPokedex pokedex = mock(IPokedex.class);
+        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
+
+        String expectedName = "Misty";
+        Team expectedTeam = Team.VALOR;
+        PokemonTrainer trainer = trainerFactory.createTrainer(expectedName, expectedTeam, pokedexFactory);
+
+        assertNotNull(trainer, "Trainer should not be null.");
+        assertEquals(expectedName, trainer.getName(), "Trainer's name should match the expected name.");
+        assertEquals(expectedTeam, trainer.getTeam(), "Trainer's team should be Team.VALOR.");
+    }
+
+    @Test
+    void testCreateTrainerWithEmptyName() {
+        IPokedex pokedex = mock(IPokedex.class);
+        when(pokedexFactory.createPokedex(metadataProvider, pokemonFactory)).thenReturn(pokedex);
+
+        String expectedName = "";
+        Team expectedTeam = Team.INSTINCT;
+        PokemonTrainer trainer = trainerFactory.createTrainer(expectedName, expectedTeam, pokedexFactory);
+
+        assertNotNull(trainer, "Trainer should not be null even with an empty name.");
+        assertEquals(expectedName, trainer.getName(), "Trainer's name should be empty as provided.");
+        assertEquals(expectedTeam, trainer.getTeam(), "Trainer's team should be Team.INSTINCT.");
+    }
 }
