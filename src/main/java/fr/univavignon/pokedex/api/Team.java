@@ -1,15 +1,25 @@
 package fr.univavignon.pokedex.api;
 
 /**
- * Pokemon Team enumeration.
+ * Enumeration representing the teams in the Pokemon world.
+ * Teams include Mystic, Instinct, and Valor.
+ *
  * @author fv
  */
 public enum Team {
 
-	MYSTIC,
+  /**
+   * Team Mystic.
+   */
+  MYSTIC,
 
-	INSTINCT,
-	
-	VALOR
+  /**
+   * Team Instinct.
+   */
+  INSTINCT,
 
+  /**
+   * Team Valor.
+   */
+  VALOR
 }
