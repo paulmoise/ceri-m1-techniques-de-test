@@ -53,9 +53,10 @@ inputs:
     description: "Enable or disable deploy of the javadoc to the GitHub Page"
     required: false
     default: "false"
+
   without-checkout: # checkout the javadoc branch, is used for development testing with nektos/act
     description: "Enable or disable the checkout"
-    required: false
+    required: true
     default: "false"
 
 
