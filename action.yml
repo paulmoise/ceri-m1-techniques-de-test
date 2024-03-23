@@ -17,7 +17,7 @@ inputs:
   javadoc-branch: # branch where the javadoc is hosted
     description: "Branch where the javadoc is hosted"
     required: true
-    default: java-doc-pages
+    default: javadoc
   target-folder: # target folder for the javadoc contents
     description: "Directory where the javadoc contents should be stored"
     required: true
