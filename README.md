@@ -2,8 +2,10 @@
 
 ## Introduction
 
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
+Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques
+de tests.  
+Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante :
+
 - Setup du projet
 - Mise en place des outils d’intégration continue
 - Écriture des tests unitaires
@@ -12,7 +14,9 @@ Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant 
 - Documentation et conventions de style
 - Test d'une implémentation donnée
 
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous
+n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la
+main.
 
 ## Sujets
 
@@ -45,5 +49,10 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 * Groupe: M1-IA-IL-ALT
 
 ## Badges
-* Badge CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master)
-* Badge Couverture de Test: [![codecov](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test/graph/badge.svg?token=INESR4ITJI)](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test)
+
+* Badge
+  CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master)
+* Badge Couverture de
+  Test: [![codecov](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test/graph/badge.svg?token=INESR4ITJI)](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test)
+* JavaDoc
+  Online  [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://paulmoise.github.io/ceri-m1-techniques-de-test/javadoc/)
