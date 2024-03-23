@@ -14,10 +14,12 @@ inputs:
   GITHUB_TOKEN: # GitHub Token
     description: "The GitHub token the GitHub repository"
     required: true
+
   javadoc-branch: # branch where the javadoc is hosted
     description: "Branch where the javadoc is hosted"
     required: true
     default: javadoc
+
   target-folder: # target folder for the javadoc contents
     description: "Directory where the javadoc contents should be stored"
     required: true
@@ -28,10 +30,12 @@ inputs:
     description: "Java distribution inside your project"
     required: false
     default: "adopt"
+
   project:
     description: "Maven or Gradle project"
     required: false
     default: maven
+
   custom-command:
     description: "Custom command to generate the javadoc"
     required: false
