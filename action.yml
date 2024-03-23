@@ -56,7 +56,7 @@ inputs:
 
   without-checkout: # checkout the javadoc branch, is used for development testing with nektos/act
     description: "Enable or disable the checkout"
-    required: true
+    required: false
     default: "false"
 
 
