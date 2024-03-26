@@ -45,14 +45,26 @@ public class IPokedexTest {
   @Test
   public void testGetPokemonReturnsCorrectly() throws PokedexException {
     Pokemon pikachu = new Pokemon(25, "Pikachu", 55, 40, 35, 431, 35, 100, 25, 0.75);
+    Pokemon bulbasaur = new Pokemon(14, "Bulbasaur", 45, 49, 49, 318, 45, 65, 65, 0.7);
     pokedex.addPokemon(pikachu);
+    pokedex.addPokemon(bulbasaur);
+
     Pokemon retrievedPokemon = pokedex.getPokemon(25);
+    Pokemon retrievedPokemon2 = pokedex.getPokemon(14);
     assertEquals(pikachu, retrievedPokemon, "Retrieved Pokemon should match the added one.");
+    assertEquals(bulbasaur, retrievedPokemon2, "Retrieved Pokemon should match the added one.");
   }
 
   @Test
   public void testGetPokemonWithInvalidIndexThrowsException() {
     int invalidIndex = -1;
+    assertThrows(PokedexException.class, () -> pokedex.getPokemon(invalidIndex),
+        "Accessing Pokemon with invalid index should throw exception.");
+  }
+
+  @Test
+  public void testGetPokemonWithInvalidIndexOutOfRangeThrowsException() {
+    int invalidIndex = 151;
     assertThrows(PokedexException.class, () -> pokedex.getPokemon(invalidIndex),
         "Accessing Pokemon with invalid index should throw exception.");
   }
