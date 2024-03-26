@@ -33,9 +33,18 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testGetPokemonMetadataNonExistentIndex() {
-        int invalidIndex = 1000;
-        assertThrows(PokedexException.class, () -> metadataProvider.getPokemonMetadata(invalidIndex),
-                "Attempting to retrieve metadata for a non-existent Pokémon index should throw a PokedexException.");
+        int invalidIndex1 = -1;
+        int invalidIndex2 = 1000;
+
+        assertAll("Attempting to retrieve metadata for a non-existent Pokémon index should throw a PokedexException.",
+            () -> assertThrows(PokedexException.class, () -> {
+                metadataProvider.getPokemonMetadata(invalidIndex1);
+            }),
+            () -> assertThrows(PokedexException.class, () -> {
+                metadataProvider.getPokemonMetadata(invalidIndex2);
+            })
+        );
+
     }
 
     @Test

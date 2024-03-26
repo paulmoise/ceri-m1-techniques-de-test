@@ -19,7 +19,7 @@ public class IPokemonFactoryTest {
   }
 
   @Test
-  public void testCreatePokemon() {
+  public void testCreatePokemonWithValidIndex() {
     int index = 15;
     int cp = 100;
     int hp = 50;
