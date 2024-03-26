@@ -89,8 +89,8 @@ public class IPokedexImpl implements IPokedex {
           return pokemon;
         }
       }
+      throw new PokedexException("Ce pokemon n'existe pas");
     }
-    throw new PokedexException("Ce pokemon n'existe pas");
   }
 
   /**

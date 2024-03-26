@@ -58,6 +58,13 @@ public class IPokedexTest {
   }
 
   @Test
+  public void testGetNonExistingPokemonIndexThrowsException() {
+    int invalidIndex = 20;
+    assertThrows(PokedexException.class, () -> pokedex.getPokemon(invalidIndex),
+        "There is no Pokemon with this index");
+  }
+
+  @Test
   public void testGetPokemonsReturnsAllAddedPokemons() {
     List<Pokemon> expectedPokemons = Arrays.asList(
         new Pokemon(25, "Pikachu", 55, 40, 35, 431, 35, 100, 25, 0.75),
