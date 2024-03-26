@@ -26,6 +26,9 @@ public class IPokemonFactoryImpl implements IPokemonFactory {
    */
   @Override
   public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
+
+    if(0> index || index > 150) throw new IllegalArgumentException("index  out of bound ");
+
     // Default values for name, attack, defense, stamina, and IV
     double iv = 0.75;
     String name = "Bulbasaur";

@@ -3,6 +3,8 @@ package fr.univavignon.pokedex.api;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -44,5 +46,20 @@ public class IPokemonFactoryTest {
     assertEquals(expectedPokemon.getCandy(), actualPokemon.getCandy());
     assertEquals(expectedPokemon.getStamina(), actualPokemon.getStamina());
     assertEquals(expectedPokemon.getDefense(), actualPokemon.getDefense());
+  }
+
+  @Test
+  public void testCreatePokemonWithInvalidIndex() {
+    assertAll("Invalid indexes",
+        () -> assertThrows(IllegalArgumentException.class, () -> {
+          pokemonFactory.createPokemon(-2, 45, 49, 49, 12); // Index -2, en dehors de l'intervalle
+        }),
+        () -> assertThrows(IllegalArgumentException.class, () -> {
+          pokemonFactory.createPokemon(151, 45, 49, 49, 12); // Index 151, en dehors de l'intervalle
+        }),
+        () -> assertThrows(IllegalArgumentException.class, () -> {
+          pokemonFactory.createPokemon(-1, 45, 49, 49, 12); // Index -1, en dehors de l'intervalle
+        })
+    );
   }
 }
