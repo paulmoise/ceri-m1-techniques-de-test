@@ -1,5 +1,6 @@
 package fr.univavignon.pokedex.api;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
@@ -71,7 +72,7 @@ public class IPokedexTest {
 
 
   @Test
-  public void testGetPokemonsSorted() {
+  public void testGetPokemonsSortedSimple() {
     Pokemon pikachu = new Pokemon(25, "Pikachu", 55, 40, 35, 431, 35, 100, 25, 0.75);
     Pokemon bulbasaur = new Pokemon(1, "Bulbasaur", 45, 49, 49, 318, 45, 65, 65, 0.7);
     pokedex.addPokemon(pikachu);
@@ -136,6 +137,132 @@ public class IPokedexTest {
 
     assertEquals(Arrays.asList(bulbasaur, charmander, squirtle), sortedPokemons,
         "Pokemons should be sorted by name.");
+  }
+
+
+  @Test
+  public void testAddPokemon() throws PokedexException {
+    Pokemon pokemon2 = new Pokemon(
+        2, // index
+        "Ivysaur", // name
+        60, // cp
+        62, // hp
+        63, // dust
+        15, // candy
+        45, // capture
+        6, // attack
+        85, // defense
+        0.6 // stamina
+    );
+    assertEquals(2, pokedex.addPokemon(pokemon2));
+  }
+
+  @Test
+  public void testGetPokemon() throws PokedexException {
+    Pokemon actual = new Pokemon(
+        12, // index
+        "Charizard", // name
+        78, // cp
+        84, // hp
+        85, // dust
+        21, // candy
+        55, // capture
+        7, // attack
+        90, // defense
+        1.7 // stamina
+    );
+    pokedex.addPokemon(actual);
+    Pokemon expected = pokedex.getPokemon(12);
+    assertEquals(actual, expected);
+  }
+
+  @Test
+  public void testGetPokemons() throws PokedexException {
+    IPokedexImpl pokedex1 = new IPokedexImpl(metadataProvider, pokemonFactory);
+    List<Pokemon> pokemonList = new ArrayList<>();
+    for (int i = 0; i < 3; i++) {
+      Pokemon pokemon = new Pokemon(
+          i + 1,
+          "Bulbasaur",
+          45,
+          49,
+          49,
+          12,
+          35,
+          5,
+          80,
+          0.5
+      );
+      pokemonList.add(pokemon);
+      pokedex1.addPokemon(pokemon);
+    }
+    assertEquals(pokemonList, pokedex1.getPokemons());
+  }
+
+  @Test
+  public void testGetPokemonsSorted() throws PokedexException {
+    List<Pokemon> pokemonList2 = new ArrayList<>();
+    IPokedexImpl pokedex2 = new IPokedexImpl(metadataProvider, pokemonFactory);
+    Pokemon pokemon1 = new Pokemon(
+        1, // index
+        "Charmander", // name
+        39, // cp
+        40, // hp
+        41, // dust
+        12, // candy
+        45, // capture
+        4, // attack
+        65, // defense
+        0.6 // stamina
+    );
+    pokemonList2.add(pokemon1);
+    Pokemon pokemon2 = new Pokemon(
+        2, // index
+        "Charmeleon", // name
+        58, // cp
+        62, // hp
+        63, // dust
+        15, // candy
+        45, // capture
+        6, // attack
+        85, // defense
+        0.6 // stamina
+    );
+    pokemonList2.add(pokemon2);
+    Pokemon pokemon3 = new Pokemon(
+        3, // index
+        "Charizard", // name
+        78, // cp
+        84, // hp
+        85, // dust
+        21, // candy
+        55, // capture
+        7, // attack
+        90, // defense
+        1.7 // stamina
+    );
+    pokemonList2.add(pokemon3);
+    pokedex2.addPokemon(pokemon1);
+    pokedex2.addPokemon(pokemon2);
+    pokedex2.addPokemon(pokemon3);
+
+    // Utilisation du comparateur PokemonComparators.NAME
+    Comparator<Pokemon> comparator = PokemonComparators.NAME;
+    pokemonList2.sort(comparator);
+    List<Pokemon> sortedPokemons = pokedex2.getPokemons(comparator);
+    assertEquals(pokemonList2, sortedPokemons);
+
+    // Utilisation du comparateur PokemonComparators.INDEX
+    comparator = PokemonComparators.INDEX;
+    pokemonList2.sort(comparator);
+    sortedPokemons = pokedex2.getPokemons(comparator);
+    assertEquals(pokemonList2, sortedPokemons);
+
+    // Utilisation du comparateur PokemonComparators.CP
+    comparator = PokemonComparators.CP;
+    pokemonList2.sort(comparator);
+    sortedPokemons = pokedex2.getPokemons(comparator);
+    assertEquals(pokemonList2, sortedPokemons);
   }
 
 
