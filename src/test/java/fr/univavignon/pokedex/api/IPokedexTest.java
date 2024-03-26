@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class IPokedexTest {
 
@@ -141,7 +142,7 @@ public class IPokedexTest {
 
 
   @Test
-  public void testAddPokemon() throws PokedexException {
+  public void testAddPokemon() {
     Pokemon pokemon2 = new Pokemon(
         2, // index
         "Ivysaur", // name
@@ -266,4 +267,13 @@ public class IPokedexTest {
   }
 
 
+  @Test
+  public void testGetPokemonMetadata() throws PokedexException {
+    PokemonMetadata expectedMetadata = new PokemonMetadata(12, "Bulbasaur", 45, 49, 49);
+    when(metadataProvider.getPokemonMetadata(12)).thenReturn(expectedMetadata);
+
+    PokemonMetadata retrievedMetadata = pokedex.getPokemonMetadata(12);
+
+    assertEquals(expectedMetadata, retrievedMetadata);
+  }
 }
