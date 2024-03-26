@@ -48,6 +48,7 @@ public class IPokemonFactoryTest {
     assertEquals(expectedPokemon.getDefense(), actualPokemon.getDefense());
     assertEquals(expectedPokemon.getHp(), actualPokemon.getHp());
     assertEquals(expectedPokemon.getDust(), actualPokemon.getDust());
+    assertEquals(expectedPokemon.getIv(), actualPokemon.getIv());
   }
 
   @Test
