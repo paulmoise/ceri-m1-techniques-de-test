@@ -58,4 +58,4 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 * Badge CheckStyle: ![Checkstyle](docs/badges/checkstyle-result.svg)
 
 * JavaDoc
-  Online  [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://paulmoise.github.io/ceri-m1-techniques-de-test/docs/)
+  Online  [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://paulmoise.github.io/ceri-m1-techniques-de-test/)
