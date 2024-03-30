@@ -51,7 +51,7 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
 ## Badges
 
 * Badge
-  CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/main)
+  CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master)
 * Badge Couverture de Test: [![codecov](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test/graph/badge.svg?token=INESR4ITJI)](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test)
 
 * Badge CheckStyle: # CheckStyle
