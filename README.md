@@ -54,8 +54,7 @@ Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin d
   CircleCI: [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WcqdrDnem9QQDAcEwArix8/3HSGCGPhZX9rpxUubPsK5e/tree/master)
 * Badge Couverture de Test: [![codecov](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test/graph/badge.svg?token=INESR4ITJI)](https://codecov.io/gh/paulmoise/ceri-m1-techniques-de-test)
 
-* Badge CheckStyle: # CheckStyle
-  ![CheckStyle](target/site/bagdes/checkstyle-result.svg)
+* Badge CheckStyle: ![CheckStyle](badges/checkstyle-result.svg)
 
 * JavaDoc
   Online  [![Javadoc](https://img.shields.io/badge/JavaDoc-Online-green)](https://paulmoise.github.io/ceri-m1-techniques-de-test/)
